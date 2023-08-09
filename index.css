@@ -3,35 +3,130 @@
 
 
 *{
+    padding: 2px;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins',sans-serif;
 }
-
+body{
+    line-height: 1.4;
+    color: black;
+}
+img{
+    width: 100%;
+    display:block;
+}
 .container{
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url(firstimage.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
+    max-width: 1320px;
+    margin: auto;
+    padding: 0 1.2rem;
+    
+}
+header{
+    min-height:100vh;
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(firstimage.jpg) center/cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    
+}
+.navbar{
+    background: rgba(0,0,0,0.6);
+    padding:1rem;
+    
+}
+.navbar-brand{
+    color: rgb(172, 172, 206);
+    font-size: 2rem;
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    
+}
+.navbar-nav{
+    padding: 0.8rem 0 0.2rem 0;
+    text-align: center;
+    
+}
+.navbar-nav a{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: blanchedalmond;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.4rem 0.1rem;
+    letter-spacing: auto;
+    transition: opacity 0.5s ease;
+    
+}
+.navbar-nav a:hover{
+    color: rgb(76, 133, 167);   
+}
+.nav-content {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+.banner{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: black;
 
 }
-.container .navbar-top{
-    width: 100%;
+.banner-title{
+    font-size: 3rem;
+    font-family: 'Poppins',sans-serif;
+    line-height: 1.4;
+}
+.banner-title{
+    font-family: 'Poppins',sans-serif;
+    color: rgb(5, 5, 4);
+}
+.banner p{
+    font-family: 'Poppins',sans-serif;
+    padding:1rem 0 2rem 0;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    font-weight: 450;
+    word-spacing: 2px;
+}
+.banner form{
+    background: rgb(248, 248, 248);
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
     display: flex;
-    padding: 0 80px;
-    margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(86, 116, 145);
-    top:0;
-    left: 0;
+    justify-content: center;
+    
 }
-.container .left{
-    display: flex;
-    list-style: none;
+.search-input{
+    border: none;
+    width:80%;
+    font-family: 'poppins',sans-serif;
+
 }
-.container .right{
-    list-style: none;
+.search-btn{
+    border:transparent;
+
 }
+@media screen and (min-width:768px){
+    .navbar-nav a{
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+    .banner-title{
+        font-size: 5rem;
+    }
+    .banner form{
+        margin-top: 1.4rem;
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
+
+
