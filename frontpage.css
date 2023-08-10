@@ -56,41 +56,7 @@ section{
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.5px;
 }
-/* #hero .btn_get_started{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 1px;
-    display: inline-block;
-    padding: 8px 28px;
-    border-radius: 50px;
-    margin: 10px;
-    border: 2px solid white;
-    background: linear-gradient(135deg, rgb(48, 116, 161), rgb(176, 201, 218));
-    color: white;
-} */
-/* #hero .btn_get_started:hover{
-    background-color: rgb(139, 122, 66);
-    color: white;
-    border: 2px solid white;
-    
-} */
-/* .container .nav-item .nav-link   {
-    color: rgb(130, 172, 199);
-    font-weight: 600;
-    
-}
-.container .nav-item .nav-link:hover{
-    color:  rgb(48, 116, 161);
-    background-color: white;
-    border-radius: 3px;
-    
-}
 
-.container .dropdown-menu .dropdown-item{
-    background-color: rgb(236, 236, 191);
-    font-weight: 300;
-} */
 .container .nav-item .nav-link{
     display: flex;
     
