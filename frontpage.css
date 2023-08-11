@@ -93,6 +93,30 @@ section{
 .container .nav-item .nav-link:hover::after{
     width: 80%;
 }
+/* for the dropdown */
+.navbar .nav-item:hover .dropdown-menu{
+    background: linear-gradient(135deg, rgb(247, 219, 128), rgb(176, 201, 218));
+       
+}
+.nav-item .dropdown-menu .dropdown-item:hover{
+    background: linear-gradient(135deg, rgb(46, 109, 161), rgb(176, 201, 218));
+    color: rgb(247, 219, 128);
+    text-shadow: 2px 2px 2px rgb(3, 3, 3);    
+    
+}
+
+@media all and (min-width: 992px) {
+	.navbar .dropdown-menu-end{ right:0; left: auto;  }
+	.navbar .nav-item .dropdown-menu{  display:block; opacity: 1;  visibility: hidden; transition:.6s; margin-top:0;  }
+	.navbar .nav-item:hover .nav-link{ color: #2a5d80;  }
+	.navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%; }
+	.navbar .dropdown-menu.fade-up{ top:180%;  }
+	.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
+}	
+
+
+/* ..... */
+
 
 
 
