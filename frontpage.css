@@ -29,6 +29,7 @@ section{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+   
     
 }
 
@@ -40,6 +41,7 @@ section{
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
     line-height: 60px;
+    
     color:  rgb(247, 219, 128);
     margin-top: 0;
     margin-right: 0;
@@ -47,6 +49,7 @@ section{
     margin-left: 0;
     text-shadow: 2px 2px 2px rgb(3, 3, 3);
 }
+
 #hero h2{
     color:  whitesmoke;
     text-shadow: 2px 2px 2px rgb(3, 3, 3);
@@ -97,13 +100,21 @@ section{
 .navbar .nav-item:hover .dropdown-menu{
     background: linear-gradient(135deg, rgb(247, 219, 128), rgb(176, 201, 218));
        
+         
 }
 .nav-item .dropdown-menu .dropdown-item:hover{
     background: linear-gradient(135deg, rgb(46, 109, 161), rgb(176, 201, 218));
     color: rgb(247, 219, 128);
-    text-shadow: 2px 2px 2px rgb(3, 3, 3);    
+       text-shadow: 2px 2px 2px rgb(3, 3, 3);
     
 }
+.navbar .dropdown-menu.fade-up{
+    background: linear-gradient(135deg, rgb(40, 107, 161), rgb(176, 201, 218));
+    
+
+
+}
+
 
 @media all and (min-width: 992px) {
 	.navbar .dropdown-menu-end{ right:0; left: auto;  }
@@ -116,7 +127,6 @@ section{
 
 
 /* ..... */
-
 
 
 
