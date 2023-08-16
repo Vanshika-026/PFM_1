@@ -1,4 +1,5 @@
 
+
 *{
     margin: 0;
     padding: 0;
@@ -62,7 +63,7 @@ section{
 
 .container .nav-item .nav-link{
     display: flex;
-    
+    font-family: 'Poppins', sans-serif;
 }
 
 .container .nav-item .nav-link {
@@ -181,3 +182,34 @@ section{
 #hero .container a:hover:after{
   width: 100%;
 }
+
+
+
+.list-unstyled a{
+    border: 2px solid white;
+    color: white;
+     background: linear-gradient(
+        45deg,
+        hsla(168, 85%, 52%, 0.5),
+        hsla(263, 88%, 45%, 0.5) 100%
+      );
+    width:40px;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30%;
+    text-decoration: none;
+    margin:0,0.3rem;
+    transition:all 0.5s
+
+
+}
+footer{
+    font-family: 'Poppins',sans-serif;
+}
+.list-unstyled a:hover{
+     background: linear-gradient(45deg, hsla(263, 88%, 45%, 0.5), hsla(168, 85%, 52%, 0.5) 100%);
+    
+}
+
