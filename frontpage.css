@@ -207,9 +207,19 @@ section{
 }
 footer{
     font-family: 'Poppins',sans-serif;
+    
+}
+
+footer .container i:hover{
+     transform: rotate(90deg);
+    transition:2s ease;
+    background:  hsla(168, 85%, 52%, 0.5);
+    border-radius: 50%;
+
 }
 .list-unstyled a:hover{
      background: linear-gradient(45deg, hsla(263, 88%, 45%, 0.5), hsla(168, 85%, 52%, 0.5) 100%);
-    
+    transform: rotate(360deg);
+    transition:2s ease;
 }
 
