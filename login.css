@@ -9,12 +9,13 @@ a:hover {
 }
 .link {
   color: #a2a9e9;
+  text-decoration: none;
 }
 .link:hover{
     color: #bba96e;
 }
 .inside{
-    color:#496eb3;
+    color:#a2a9e9;
 }
 p {
   font-weight: 500;
@@ -53,7 +54,7 @@ h6 span{
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: #496eb3;
+  background-color:  #ffefa7;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
@@ -100,6 +101,7 @@ h6 span{
   transition: all 600ms ease-out; 
 }
 .card-front, .card-back {
+   box-shadow: 0 4px 8px 0 rgba(20, 20, 20, 0.74);
   width: 100%;
   height: 100%;
   background-color: #2a2b38;
@@ -133,6 +135,7 @@ h6 span{
   transform: translate3d(0, -50%, 35px) perspective(100px);
   z-index: 20;
   display: block;
+   
 }
 
 
@@ -158,7 +161,7 @@ h6 span{
   border: none;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
-  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+  box-shadow: 0 4px 8px 0 rgba(20, 20, 20, 0.212);
 }
 .form-style:focus,
 .form-style:active {
@@ -222,6 +225,7 @@ h6 span{
   opacity: 0;
   -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
+    
 }
 
 .btn{  
@@ -283,4 +287,78 @@ h6 span{
 .logged{
     color: rgb(55, 40, 90);
     font-weight: bold;
+    font-size: 18px;
+}
+
+/* animated */
+.background {
+  background: linear-gradient(132deg, #dee97e, #4877b9, #545881);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  padding:0;
+  margin:0px;
+}
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #D7D4E4;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 12s ease-in forwards infinite;
+}
+.cube:nth-child(2n) {
+  border-color: #FFF ;
+}
+.cube:nth-child(2) {
+  animation-delay: 2s;
+  left: 25vw;
+  top: 40vh;
+}
+.cube:nth-child(3) {
+  animation-delay: 4s;
+  left: 75vw;
+  top: 50vh;
+}
+.cube:nth-child(4) {
+  animation-delay: 6s;
+  left: 90vw;
+  top: 10vh;
+}
+.cube:nth-child(5) {
+  animation-delay: 8s;
+  left: 10vw;
+  top: 85vh;
+}
+.cube:nth-child(6) {
+  animation-delay: 10s;
+  left: 50vw;
+  top: 10vh;
+}
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
 }
