@@ -13,13 +13,14 @@
     <title>frontpage</title>
 </head>
 <body>
+
   <!--homepage-->
-    
+     
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
     
     <img src="cashimage1.png" width="70px">
-    <!-- <a class="navbar-brand" href="#">LOGO</a> -->
+     <a class="navbar-brand" href="#">LOGO</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,20 +39,6 @@
         <li class="nav-item">
           <a class="nav-link active" href="#">LogIn</a>
         </li>
-        
-        
-        <!-- <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categories
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            
-            <li><a class="dropdown-item" href="#">dropdown1</a></li><hr>
-            <li><a class="dropdown-item" href="#">dropdown2</a></li>
-            
-          </ul>
-        </li> -->
-
 
       <li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Settings </a>
@@ -69,72 +56,99 @@
 </nav>
 
     <section id="hero" class="d-flex align-items-center" >
-        <div class="container"  >
-            <!-- <h1>Say Goodbye to <br>Guesswork!</h1> -->
+        <div class="container"  > 
             <h1 class="heading">Eve₹ything Got<br> Way $impler.</h1>
-            <h2>Let's build a brighter financial future together...</h2>
-            <!-- <a href="#" class="btn_get_started ">GET STARTED</a> -->
+            <h2>Let's build a brighter financial future together...</h2>  
             <a href="#"><span>GET STARTED</span></a>
         </div>
-
-        
-
     </section>
 
-    <div class="container mt-5">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Total Revenue</h5>
-          <p class="card-text">$1,000,000</p>
+
+
+<!--budget part-->
+  <div class="container mt-5">
+        <div class="row">
+           <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body" id="card-1">
+                        <h4 class="card-title"> Total Balance</h4><br>
+                            <p class="card-texts" id="balance">-₹0.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body" id="card-2">
+                        <h4 class="card-title">Income </h4><br>
+                        <p class="money-plus" id="money-plus">+₹0.00 </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body" id="card-3">
+                        <h4 class="card-title"> Expenses </h4><br>
+                            <p class="money-minus" id="money-minus">  -₹0.00</p>
+                    </div>
+                </div>
+            </div> 
         </div>
+        <div class="row mt-5 ">
+            <div class="col lg-6">
+             <div class=" programming-stats ">
+      <div class="chart-container ">
+        <canvas class="my-chart"></canvas>
+      </div>
+
+      <div class="details">
+        <ul></ul>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Total Expenses</h5>
-          <p class="card-text">$500,000</p>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Net Income</h5>
-          <p class="card-text">$500,000</p>
+        <div class="col lg-6">
+         <div class="card" id="barcard">
+      <div class="chart">
+       <canvas id="barChart"></canvas>
+     </div>
+     </div>
+     </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Expense Report</h5>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3XgKqOvergaemBWVc_UlVE3IUH5Pll6hFBQ&usqp=CAU">
+        <div class="row mt-5">
+          <div class="col-lg-6">
+          <div class="card" id="table">
+          <div class="card-body" >
+          <h2 class="card-top-title text-white">Recent Transactions</h2>
+           <ul class="list"id="list">
+            <li class="lists"></li>
+            </ul>
+            </div>
+            </div>
+            </div>
+               <div class="col-lg-6">
+                <div class="card" id="tada">
+                <div class="card-body" >
+                    <h2 class="text-white">Enter here</h2>
+            <form id="form">
+          <div class="form-control">
+              <label for="text">Text</label><br>
+              <input type="text" id="text" placeholder="Enter Text...."/>
+          </div><br>
+          <div class="form-control">
+              <label for="amount">Amount ( Income - positive , Expense - negative )</label><br>
+              <input type="number" id="amount" placeholder="Enter amount..."> 
+          </div><br>
+          <button class="btn" >All transaction</button>
+      </form>
         </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Recent Transactions</h5>
-          <ul class="list-group">
-            <li class="list-group-item">Transaction A - $5,000</li>
-            <li class="list-group-item">Transaction B - $2,500</li>
-            <li class="list-group-item">Transaction C - $1,000</li>
-          </ul>
         </div>
-      </div>
+         </div>
+        </div>
+        <br>
     </div>
-  </div>
-</div>
 
 
 <!--contact part-->
-<div class="section">
+<div class="section"><hr>
 		<div class="container">
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">
@@ -263,6 +277,8 @@
 
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="frontpage.js"></script>
+    
 </body>
 </html>
