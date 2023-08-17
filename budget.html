@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+      
+    <link rel="stylesheet" href="budget.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+           <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body" id="card-1">
+                        <h4 class="card-title"> Total Balance</h4><br>
+                            <p class="card-texts" id="balance">-₹0.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body" id="card-2">
+                        <h4 class="card-title">Income </h4><br>
+                        <p class="money-plus" id="money-plus">+₹0.00 </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body" id="card-3">
+                        <h4 class="card-title"> Expenses </h4><br>
+                            <p class="money-minus" id="money-minus">  -₹0.00</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="row mt-5 ">
+            <div class="col lg-6">
+             <div class=" programming-stats ">
+      <div class="chart-container ">
+        <canvas class="my-chart"></canvas>
+      </div>
+
+      <div class="details">
+        <ul></ul>
+      </div>
+    </div>
+        </div>
+        <div class="col lg-6">
+         <div class="card" id="barcard">
+      <div class="chart">
+       <canvas id="barChart"></canvas>
+     </div>
+     </div>
+     </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-lg-6">
+          <div class="card" id="table">
+          <div class="card-body" >
+          <h2 class="card-top-title text-white">Recent Transactions</h2>
+           <ul class="list"id="list">
+            <li class="lists"></li>
+            </ul>
+            </div>
+            </div>
+            </div>
+               <div class="col-lg-6">
+                <div class="card" id="tada">
+                <div class="card-body" >
+                    <h2 class="text-white">Enter here</h2>
+            <form id="form">
+          <div class="form-control">
+              <label for="text">Text</label><br>
+              <input type="text" id="text" placeholder="Enter Text...."/>
+          </div><br>
+          <div class="form-control">
+              <label for="amount">Amount ( Income - positive , Expense - negative )</label><br>
+              <input type="number" id="amount" placeholder="Enter amount..."> 
+          </div><br>
+          <button class="btn" >All transaction</button>
+      </form>
+        </div>
+        </div>
+         </div>
+        </div>
+        <br>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="budgt.js"></script>
+</body>
+</html>
