@@ -11,7 +11,7 @@
 </head>
 <body>
     <!--contact part-->
-	<form>
+	<form id="loginSignupForm">
 	
 <div class="section">
 		 <div class="background">
@@ -39,36 +39,44 @@
 											<h4 class="inside mb-4 pb-3">Log In</h4>
 											<div class="form-group">
                         
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email*"   id="logemail" autocomplete="off" >
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email*"   id="logemail" autocomplete="off" required>
 						
 												<i class="input-icon fa fa-envelope-o"></i>
 											</div>	
 											<div class="form-group mt-2">
-												<input type="password" name="logpass" class="form-style" placeholder="Your Password*"  id="logpass" autocomplete="off">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password*"  id="logpass" autocomplete="off" required>
 												<i class="input-icon fa fa-lock"></i>
 											</div>
-											<a href="budget.html" class="btn mt-4">submit</a>
-                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
+											
+											
+											<button  type="submit" class="btn mt-4"><a href="budget.html" class="link">Submit</a></button>
+											
+                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link-one">Forgot your password?</a></p>
 				      					</div>
 			      					</div>
 			      				</div>
-								<div class="card-back">
+								<div class="card-back  ">
 									<div class="center-wrap">
-										<div class="section text-center">
+										<div class="section text-center ">
 											<h4 class="inside mb-4 pb-3 ">Sign Up</h4>
 											<div class="form-group">
-												<input type="text" name="logname" class="form-style" placeholder="Your Full Name*" id="logname" autocomplete="off" >
+												<input type="text" name="logname" class="form-style" placeholder="Your Full Name*" id="logname" autocomplete="off" required>
 												<i class="input-icon fa fa-user-circle"></i>
 											</div>	
 											<div class="form-group mt-2">
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email*" id="logemail" autocomplete="off" >
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email*" id="logemail" autocomplete="off" required>
 												<i class="input-icon fa fa-envelope-o"></i>
 											</div>	
 											<div class="form-group mt-2">
-												<input type="password" name="logpass" class="form-style" placeholder="Your Password*" id="logpass" autocomplete="off" >
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password*" id="logpass" autocomplete="off" required>
 												<i class="input-icon fa fa-lock"></i>
 											</div>
-											<a href="budget.html" class="btn mt-4">submit</a>
+											<div class="form-group mt-2">
+												<input type="phone" name="logphone" class="form-style" placeholder="Phone No.*" id="logphone" autocomplete="off" required>
+												<i class="input-icon fa fa-phone"></i>
+											</div>
+										
+											<button  type="submit" class="btn mt-4"><a href="budget.html" class="link">Submit</a></button>
 				      					</div>
 			      					</div>
 			      				</div>
@@ -82,7 +90,42 @@
 	</div>
 	</div>
 </form>
+
+<!-- <script>
+    const form = document.getElementById("loginSignupForm");
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const formData = new FormData(form); // Create a FormData object from the form
+
+        try {
+            const response = await fetch("URL_TO_YOUR_SERVER_ENDPOINT", {
+                method: "POST", // Use the appropriate HTTP method
+                body: formData, // Attach the form data to the request
+            });
+
+            if (response.ok) {
+                // Request was successful, handle the response if needed
+                const responseData = await response.json(); // Assuming the server responds with JSON
+                console.log("Response:", responseData);
+            } else {
+                // Handle errors
+                console.error("Error:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Fetch error:", error);
+        }
+    });
+</script> -->
+
+
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+	
+	<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="login.js"></script> -->
+    
     
 
 </body>

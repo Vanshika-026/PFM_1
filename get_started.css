@@ -42,11 +42,11 @@ section{
 }
 #hero h1{
     font-size: 50px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 800;
     line-height: 60px;
     
-    color: hsla(168, 67%, 49%, 0.815);
+    color: hsl(199, 75%, 66%);
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 10px;
