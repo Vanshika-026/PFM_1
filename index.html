@@ -31,8 +31,6 @@
         <div class="cube"></div>
 
         <div class="container">
-          
-
           <div class="row full-height justify-content-center">
             <div class="col-12 text-center align-self-center py-5">
               <div class="section pb-5 pt-5 pt-sm-2 text-center">
@@ -77,8 +75,12 @@
                               <i class="input-icon fa fa-lock"></i>
                             </div>
 
-                            <button type="submit" class="btn mt-4">
-                              <a href="budget.html" class="link">Submit</a>
+                            <button
+                              type="submit"
+                              class="btn mt-4"
+                              id="submitButton"
+                            >
+                              <a href="#" class="link">Submit</a>
                             </button>
 
                             <p class="mb-0 mt-4 text-center">
@@ -214,8 +216,39 @@
 
       const loginForm = document.getElementById("loginForm");
 
+      // loginForm.addEventListener("submit", async (event) => {
+      //       event.preventDefault(); // Prevent the form from submitting
+
+      //       const email = document.getElementById("logemail").value;
+      //       const password = document.getElementById("logpass").value;
+
+      //       try {
+      //         const auth = getAuth();
+      //         const userCredential = await signInWithEmailAndPassword(
+      //           auth,
+      //           email,
+      //           password
+      //         );
+      //         console.log(userCredential.user.uid);
+      //         alert("Login successful!");
+
+      //         // Redirect to the next page after successful login
+      //         window.location.href = "budget.html";
+      //       } catch (error) {
+      //         console.error(error);
+      //         alert("Error login. Check the console for details.");
+      //       }
+      //     });
+      //   }
+
       loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
+
+        if (submitButton.disabled) {
+          return; // Prevent multiple login attempts while the button is disabled
+        }
+
+        submitButton.disabled = true; // Disable the button during login process
 
         const email = document.getElementById("logemail").value;
         const password = document.getElementById("logpass").value;
@@ -228,9 +261,12 @@
           );
           console.log(userCredential.user.uid);
           alert("login successfull!");
+          window.location.href = "budget.html";
         } catch (error) {
           console.error(error);
           alert("Error login. Check the console for details.");
+        } finally {
+          submitButton.disabled = false; // Re-enable the button after login attempt
         }
       });
     }

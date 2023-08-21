@@ -1,5 +1,6 @@
 /* contact page */
 
+
 a {
 	cursor: pointer;
   transition: all 200ms linear;
@@ -46,7 +47,6 @@ h6 span{
   min-height: 100vh;
   
 }
-
 
 [type="checkbox"]:checked,
 [type="checkbox"]:not(:checked){
@@ -209,7 +209,7 @@ h6 span{
 }
 .card-back.signup {
   
-   background-color: #102770; /* Apply a solid background color */
+   background-color: #102770; 
   transform: rotateY(180deg);
 }
 .checkbox:checked ~ .card-3d-wrap.signup .card-3d-wrapper.signup {
