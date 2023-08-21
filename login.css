@@ -39,11 +39,15 @@ h6 span{
 .section{
   position: relative;
   width: 100%;
+  
   display: block;
 }
 .full-height{
   min-height: 100vh;
+  
 }
+
+
 [type="checkbox"]:checked,
 [type="checkbox"]:not(:checked){
   position: absolute;
@@ -127,9 +131,12 @@ h6 span{
   backface-visibility: hidden;
 }
 
+
 .card-back {
   transform: rotateY(180deg);
+  
 }
+
 .checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
   transform: rotateY(180deg);
 }
@@ -142,8 +149,77 @@ h6 span{
   transform: translate3d(0, -50%, 35px) perspective(100px);
   z-index: 20;
   display: block;
-   
 }
+
+/* ... Previous CSS code ... */
+
+.card-3d-wrap.signup {
+  
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  height: 400px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  margin-top: 60px;
+  transform: rotateY(180deg); 
+}
+.card-3d-wrapper.signup {
+  transform: rotateY(180deg);
+  background-position: bottom center;
+  width: 100%;
+  height: 100%;
+  position:absolute;    
+  top: 0;
+  left: 0;  
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: all 600ms ease-out; 
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.card-front.signup,
+.card-back.signup {
+  transform: rotateY(0deg);
+  background-size: cover;
+}
+
+
+.card-front.signup, .card-back.signup {
+  box-shadow: 0 4px 8px 0 rgba(20, 20, 20, 0.74);
+  width: 100%;
+  height: 100%;
+  background-color: #2a2b38;
+  background-image: url('contact-background.avif');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 300%;
+  position: absolute;
+  border-radius: 6px;
+  left: 0;
+  top: 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card-back.signup {
+  
+   background-color: #102770; /* Apply a solid background color */
+  transform: rotateY(180deg);
+}
+.checkbox:checked ~ .card-3d-wrap.signup .card-3d-wrapper.signup {
+  transform: rotateY(180deg);
+ 
+}
+
+
+/* ....... */
+
 
 
 .form-group{ 
@@ -299,7 +375,7 @@ h6 span{
 
 /* animated */
 .background {
-  background: linear-gradient(132deg, #dee97e, #4877b9, #545881);
+  background: linear-gradient(132deg, #dae290, #4877b9, #545881);
   background-size: 400% 400%;
   animation: Gradient 15s ease infinite;
   position: relative;
@@ -369,5 +445,9 @@ h6 span{
     opacity: 0;
   }
 }
+
+
+
+
 
 
