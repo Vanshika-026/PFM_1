@@ -21,25 +21,19 @@
     <title>contact-form</title>
   </head>
   <body>
-    <!--contact part-->
-    <div class="section ">
-      <div class="background " style=" height: auto;">
+   <!--contact part-->
+    <div class="section">
+      <div class="background" style="height: auto">
         <div class="cube"></div>
         <div class="cube"></div>
         <div class="cube"></div>
         <div class="cube"></div>
         <div class="cube"></div>
-
-        <div class="container pt-4 ">
-          
-           <img class="logo" src="wealthwise_logo.png" width="90px" />
-          
-          <div class="row full-height justify-content-center ">
-            
+        <div class="container pt-4">
+          <img class="logo" src="wealthwise_logo.png" width="90px" />
+          <div class="row full-height justify-content-center">
             <div class="col-12 text-center align-self-center py-5">
-              
               <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                
                 <h6 class="logged mb-0 pb-3 pt-0">
                   <span>Log In </span><span>Sign Up</span>
                 </h6>
@@ -56,7 +50,6 @@
                       <div class="center-wrap">
                         <div class="section text-center">
                           <h4 class="inside mb-4 pb-3">Log In</h4>
-
                           <form id="loginForm" class="form-section">
                             <div class="form-group">
                               <input
@@ -150,7 +143,6 @@
                                   />
                                   <i class="input-icon fa fa-phone"></i>
                                 </div>
-
                                 <button type="submit" class="btn mt-4">
                                   <!-- <a href="budget.html" class="link">Submit</a> -->
                                   Submit
@@ -222,31 +214,7 @@
 
       const loginForm = document.getElementById("loginForm");
 
-      // loginForm.addEventListener("submit", async (event) => {
-      //       event.preventDefault(); // Prevent the form from submitting
-
-      //       const email = document.getElementById("logemail").value;
-      //       const password = document.getElementById("logpass").value;
-
-      //       try {
-      //         const auth = getAuth();
-      //         const userCredential = await signInWithEmailAndPassword(
-      //           auth,
-      //           email,
-      //           password
-      //         );
-      //         console.log(userCredential.user.uid);
-      //         alert("Login successful!");
-
-      //         // Redirect to the next page after successful login
-      //         window.location.href = "budget.html";
-      //       } catch (error) {
-      //         console.error(error);
-      //         alert("Error login. Check the console for details.");
-      //       }
-      //     });
-      //   }
-
+   
       loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -280,10 +248,5 @@
     window.onload = function () {
       initApp();
     };
-
-
-
-  
-
   </script>
 </html>
