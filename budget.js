@@ -1,3 +1,29 @@
+const toggleThemeButton = document.getElementById("toggle-theme");
+const body = document.body;
+
+toggleThemeButton.addEventListener("click", () => {
+  body.classList.toggle("dark-theme");
+  body.classList.toggle("light-theme");
+
+  const labelColor = body.classList.contains("dark-theme") ? "white" : "black";
+
+  expenseChart.options.plugins.legend.labels.color = labelColor;
+  expenseChart.options.plugins.tooltip.callbacks.label = function (context) {
+    return context.label + ": " + context.formattedValue;
+  };
+
+  barChart.options.plugins.legend.labels.color = labelColor;
+  barChart.options.plugins.tooltip.callbacks.label = function (context) {
+    return context.label + ": " + context.formattedValue;
+  };
+
+  barChart.options.scales.x.ticks.color = labelColor;
+  barChart.options.scales.y.ticks.color = labelColor;
+
+  expenseChart.update();
+  barChart.update();
+});
+
 const balance = document.getElementById("balance");
 const money_plus = document.getElementById("money-plus");
 const money_minus = document.getElementById("money-minus");
@@ -5,6 +31,7 @@ const list = document.getElementById("list");
 const form = document.getElementById("form");
 const text = document.getElementById("text");
 const amount = document.getElementById("amount");
+const expenseType = document.getElementById("expense-type");
 
 const localStorageTransactions = JSON.parse(
   localStorage.getItem("transactions")
@@ -15,13 +42,24 @@ let transactions =
 
 function addTransaction(e) {
   e.preventDefault();
-  if (text.value.trim() === "" || amount.value.trim() === "") {
+
+  const transactionType = document.getElementById("transaction-type").value;
+
+  if (
+    expenseType.value.trim() === "" ||
+    text.value.trim() === "" ||
+    amount.value.trim() === ""
+  ) {
     alert("please add text and amount");
   } else {
     const transaction = {
       id: generateID(),
+      expense: expenseType.value,
       text: text.value,
-      amount: +amount.value,
+      amount:
+        transactionType === "expense"
+          ? -Math.abs(amount.value)
+          : +Math.abs(amount.value),
     };
 
     transactions.push(transaction);
@@ -29,6 +67,7 @@ function addTransaction(e) {
     addTransactionDOM(transaction);
     updateValues();
     updateLocalStorage();
+    expenseType.value = "";
     text.value = "";
     amount.value = "";
   }
@@ -45,12 +84,21 @@ function addTransactionDOM(transaction) {
   item.classList.add(transaction.amount < 0 ? "minus" : "plus");
 
   item.innerHTML = `
-    ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span>
-    <button class="delete-btn" onclick="removeTransaction(${
-      transaction.id
-    })">X</button>
-    `;
+  ${transaction.expense} ${transaction.text} 
+  <span>${sign}${Math.abs(transaction.amount)}</span>
+`;
+
   list.appendChild(item);
+}
+
+const clearTransactionsButton = document.getElementById("clear-transactions");
+
+clearTransactionsButton.addEventListener("click", clearAllTransactions);
+
+function clearAllTransactions() {
+  transactions = [];
+  updateLocalStorage();
+  Init();
 }
 
 function updateValues() {
@@ -68,6 +116,12 @@ function updateValues() {
   balance.innerText = `₹${total}`;
   money_plus.innerText = `₹${income}`;
   money_minus.innerText = `₹${expense}`;
+
+  if (total < 0) {
+    document.getElementById("card-1").style.backgroundColor = "#d0342c ";
+  } else {
+    document.getElementById("card-1").style.backgroundColor = "#3FA0EF";
+  }
 }
 
 function removeTransaction(id) {
@@ -90,95 +144,87 @@ Init();
 
 form.addEventListener("submit", addTransaction);
 
-localStorage.setItem("datapoints", [1, 4, 3, 4, 5]);
-console.log(localStorage.getItem("datapoints"));
-const datapoints = localStorage.getItem("datapoints");
-console.table(datapoints.split(","));
+const expenseLabels = transactions
+  .filter((transaction) => transaction.amount < 0)
+  .map((transaction) => transaction.expense);
 
-const chartData = {
-  labels: ["Food & Drinks", "Clothing", "Personal Care", "Medical", "Others"],
-  // data: [30, 17, 10, 7, 36],
-  data: datapoints.split(","),
-};
+const expenseAmounts = transactions
+  .filter((transaction) => transaction.amount < 0)
+  .map((transaction) => Math.abs(transaction.amount));
 
-const myChart = document.querySelector(".my-chart");
-const ul = document.querySelector(".programming-stats .details ul");
-
-new Chart(myChart, {
+const expenseChartCanvas = document.getElementById("expense-chart");
+const expenseChart = new Chart(expenseChartCanvas, {
   type: "doughnut",
   data: {
-    labels: chartData.labels,
+    labels: expenseLabels,
     datasets: [
       {
-        label: "",
-        data: chartData.data,
+        data: expenseAmounts,
+        backgroundColor: [
+          "#e07e63",
+          "#bfca43",
+          "#df9f8e",
+          "#7eb1e4",
+          "#bec476",
+        ],
       },
     ],
   },
   options: {
-    borderWidth: 10,
-    borderRadius: 2,
-    hoverBorderWidth: 0,
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: false,
+        labels: {
+          color: body.classList.contains("dark-theme") ? "white" : "black",
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return context.label + ": " + context.formattedValue;
+          },
+        },
       },
     },
   },
 });
 
-const populateUl = () => {
-  chartData.labels.forEach((l, i) => {
-    let li = document.createElement("li");
-    li.innerHTML = `${l}: <span class='percentage'>${chartData.data[i]}%</span>`;
-    ul.appendChild(li);
-  });
-};
+const incomeByExpenseType = transactions.reduce((acc, transaction) => {
+  if (transaction.amount > 0) {
+    acc[transaction.expense] =
+      (acc[transaction.expense] || 0) + transaction.amount;
+  }
+  return acc;
+}, {});
 
-populateUl();
-
-document.addEventListener("DOMContentLoaded", function () {
-  var ctx = document.getElementById("barChart").getContext("2d");
-  var myChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: [
-        "Food & Drinks",
-        "Clothing",
-        "Personal Care",
-        "Medical",
-        "Others",
-      ],
-      datasets: [
-        {
-          label: "Income",
-          data: [1200, 1500, 1000, 1500, 1600],
-          backgroundColor: [
-            "#1092B4",
-            "#FF6384",
-            "#FF8d3d",
-            "#F9E076",
-            "#1FB5AD",
-          ],
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: {
-          grid: {
-            display: false,
-          },
-        },
-        y: {
-          beginAtZero: true,
-          grid: {
-            drawBorder: false,
-          },
-        },
+const barChartCanvas = document.getElementById("barChart");
+const barChart = new Chart(barChartCanvas, {
+  type: "bar",
+  data: {
+    labels: Object.keys(incomeByExpenseType),
+    datasets: [
+      {
+        label: "Income by Expense Type",
+        data: Object.values(incomeByExpenseType),
+        backgroundColor: [
+          "#e07e63",
+          "#bfca43",
+          "#df9f8e",
+          "#7eb1e4",
+          "#bec476",
+        ],
+      },
+    ],
+  },
+  options: {
+    border: 0,
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
       },
     },
-  });
+  },
 });
