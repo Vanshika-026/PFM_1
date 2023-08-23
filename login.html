@@ -241,11 +241,10 @@
           window.location.href = "budget.html";
         } catch (error) {
           console.error(error);
-          // alert("Error login. Check the console for details.");
+          alert("Error login.");
         } finally {
           submitButton.disabled = false; // Re-enable the button after login attempt
         }
-      
       });
     }
 
