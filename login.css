@@ -138,30 +138,34 @@ h6 span{
 .checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
   transform: rotateY(180deg);
 }
+.center-wrap-front{
+   position: absolute;
+  width: 100%;
+  padding: 0 35px;
+ 
+  top: 9%;
+  left: 0;
+  
+  transform: translate3d(0, 35px) perspective(100px);
+  z-index: 20;
+  display: block;
+}
 .center-wrap{
   
   position: absolute;
   width: 100%;
   padding: 0 35px;
-  top: 50%;
+  /* top: 50%; */
+  top: 5%;
   left: 0;
-  transform: translate3d(0, -50%, 35px) perspective(100px);
+ 
+   transform: translate3d(0, 35px) perspective(100px);
   z-index: 20;
   display: block;
 }
-/* .center-wrap{
-  position: absolute;
-  width: 100%;
-  padding: 0 35px;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%) translateZ(35px);
-  z-index: 20;
-  display: block;
-} */
 
 
-/* ... Previous CSS code ... */
+
 
 .card-3d-wrap.signup {
   
@@ -172,7 +176,7 @@ h6 span{
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 800px;
-  margin-top: 60px;
+  margin-top: 10px;
   transform: rotateY(180deg); 
 }
 .card-3d-wrapper.signup {
@@ -368,10 +372,6 @@ h6 span{
 .logo {
 	position: absolute;
 	top: 20px;
-	
-	display: block;
-	z-index: 100;
-	transition: all 250ms linear;
 }
 .logo img {
 	height: 26px;
@@ -387,7 +387,6 @@ h6 span{
 /* animated */
 .background {
   background: linear-gradient(132deg, #e79140, #4877b9, #545881);
-  background-size: 400% 400%;
   animation: Gradient 15s ease infinite;
   position: relative;
   height: 100vh;
